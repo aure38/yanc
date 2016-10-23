@@ -1,0 +1,10 @@
+# https://github.com/toml-lang/toml
+# https://github.com/avakar/pytoml
+title = "YANC Config"
+
+[ops4app]
+"rdb.ip"    = "192.168.75.97"
+"rdb.port"  = 28015
+"rdb.base"  = "yanc"
+
+[fetch_feeds]
