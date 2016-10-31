@@ -36,7 +36,7 @@ function fillGUI(articles)
         tex_col2 = tex_col2 + '<a href="' + article['url'] + '" target="_blank"><img src="' + article['image'] + '" class="img-rounded" style="height:70px;max-width:90px;"/></a>' ; // max-height:80px; width:100%;
 
         var tex_col3 = '' ; // '<div style="position:relative;">' ;
-        tex_col3 = tex_col3 + '<div style="font-size: 130%;"><b>' + article['title'] + '</b></div>' + article['summary'] ;
+        tex_col3 = tex_col3 + '<div style="font-size: 130%;"><b>' + article['title'] + '</b></div>' + article['content'] ;
 
         var tex_col4 = '<div class="btn-toolbar" role="toolbar" style:"margin:0px;">' ;
         tex_col4 = tex_col4 + '<div class="btn btn-block btn-xs btn-danger" style="width:40px; margin: 0px; margin-right:4px;" onclick="deleteArticle(\''+row_id+'\', \'' + article['id'] + '\')">DEL</div>' ;
@@ -57,8 +57,11 @@ function fillGUI(articles)
 $(document).ready(function() {
 
     // -- Init
+    gv_un = undefined
     gv_un1 = location.search.split('usrun=')[1] ;
-    gv_un = gv_un1.split('&')[0] ;
+    if ( gv_un1 ) {
+        gv_un = gv_un1.split('&')[0] ;
+    }
     if ( gv_un == undefined ) {
         gv_un = localStorage.getItem('gv_un') ;
         if ( gv_un == undefined ) {
@@ -69,9 +72,9 @@ $(document).ready(function() {
         localStorage.setItem('gv_un', gv_un)
     }
     $('#fd_un')[0].innerHTML = gv_un
+
     gv_nbartic = 0 ;
     gv_nbartictotal = "0" ;
-
     // -- Recup articles
     $.getJSON(url="./getlstartic", data={"usrun":gv_un , "nbdays":"10"}, success=function( data2 )
     {

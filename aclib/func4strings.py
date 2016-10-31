@@ -86,6 +86,7 @@ class Func4strings:
                                              pNormalizeASCII=True,
                                              pEnleveSignesSpeciaux=False, pLettreDigitPointTiret=False,
                                              pLetterDigitTiretOnly=False, pBagOfWords=True)
+
     @staticmethod
     def strMultiReplace(subs, subject) :
         """Simultaneously perform all substitutions on the subject string.

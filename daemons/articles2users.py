@@ -1,11 +1,7 @@
 import logging
-import os,sys,time,hashlib
+import os,sys
 from pathlib import Path
-from datetime import datetime
-from pytz import timezone
-from aclib.func4strings import Func4strings as f4s
 from aclib.ops4app import ops4app
-import feedparser
 import rethinkdb as r
 
 if __name__ == '__main__':
@@ -43,7 +39,7 @@ if __name__ == '__main__':
 
             for artic in liste_articles :
                 # TODO : Analyse de l'article avec les filtres
-                tmpSort = '1000' + artic['ts_published'].strftime('%y%m%d%H%M')
+                tmpSort = '1000' + artic["ts_published"].strftime('%y%m%d%H%M')
                 do_insert = False
                 if not r.table('articles_users').get(artic['id']).run(myops.rdb) :
                     do_insert = True

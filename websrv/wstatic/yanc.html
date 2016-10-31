@@ -6,17 +6,21 @@
     <link rel="icon" type="image/gif" href="/images/favicon.gif" />
     <!-- JQUERY -->
     <script type="text/javascript" src="/jslib/jquery-3.1.0.min.js"></script>
-    <!-- Yanc -->
-    <script type="text/javascript" src="/yanc.js"></script>
     <!-- Bootstrap -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="/jslib/bootstrap-3.3.7/js/bootstrap.js"></script>
     <link href="/jslib/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Yanc -->
+    <script type="text/javascript" src="/yanc.js"></script>
 </head>
+
+<!--- http://getbootstrap.com/components/ --->
 
 <body style="background-color: #000000;">
     <div class="well well-sm row" style="color:#000000; background-color: #d7d6e4; display:flex; justify-content: left; padding:4px; max-width:100%; margin-bottom: 2px; margin-top: 1px;margin-right: 2px;margin-left: 4px;">
         <button class="btn btn-primary btn-xs" type="button">User&nbsp;&nbsp;<span id="fd_un" class="badge"></span></button>
+        &nbsp;&nbsp;
+        <button class="btn btn-primary btn-xs" type="button">Feeds&nbsp;&nbsp;<span id="fd_nbfeeds" class="badge"></span></button>
         &nbsp;&nbsp;
         <button class="btn btn-primary btn-xs" type="button">Articles&nbsp;&nbsp;<span id="fd_nbartic" class="badge"></span></button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -24,9 +28,14 @@
         &nbsp;&nbsp;
         <button class="btn btn-success btn-xs" type="button">Mark all read</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-info btn-xs" type="button">Feeds</button>
+
+        <a href="./yanc.html" target="_self"><button class="btn btn-info btn-xs" type="button">My Articles</button></a>
         &nbsp;&nbsp;
-        <button class="btn btn-info btn-xs" type="button">Filters</button>
+        <a href="./myfilters.html" target="_self"><button class="btn btn-default btn-xs" type="button">My Filters</button></a>
+        &nbsp;&nbsp;
+        <a href="./feedadd.html" target="_self"><button class="btn btn-default btn-xs" type="button">Add Feed</button></a>
+        &nbsp;&nbsp;
+        <a href="./myfeeds.html" target="_self"><button class="btn btn-default btn-xs" type="button">My Feeds</button></a>
     </div>
 
     <div id="tblarticles">

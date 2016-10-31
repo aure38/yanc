@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YANC</title>
+    <link rel="icon" type="image/gif" href="/images/favicon.gif" />
+    <!-- JQUERY -->
+    <script type="text/javascript" src="/jslib/jquery-3.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/jslib/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <link href="/jslib/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Yanc -->
+    <script type="text/javascript" src="/feedadd.js"></script>
+</head>
+
+<!--- http://getbootstrap.com/components/ --->
+
+<body style="background-color: #ffffff;">
+    <div class="well well-sm row" style="color:#000000; background-color: #d7d6e4; display:flex; justify-content: left; padding:4px; max-width:100%; margin-bottom: 2px; margin-top: 1px;margin-right: 2px;margin-left: 4px;">
+        <button class="btn btn-primary btn-xs" type="button">User&nbsp;&nbsp;<span id="fd_un" class="badge"></span></button>
+        &nbsp;&nbsp;
+        <button class="btn btn-primary btn-xs" type="button">Feeds&nbsp;&nbsp;<span id="fd_nbfeeds" class="badge"></span></button>
+        &nbsp;&nbsp;
+        <button class="btn btn-primary btn-xs" type="button">Articles&nbsp;&nbsp;<span id="fd_nbartic" class="badge"></span></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-success btn-xs" type="button">Refresh</button>
+        &nbsp;&nbsp;
+        <button class="btn btn-success btn-xs" type="button">Mark all read</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <a href="./yanc.html" target="_self"><button class="btn btn-default btn-xs" type="button">My Articles</button></a>
+        &nbsp;&nbsp;
+        <a href="./myfilters.html" target="_self"><button class="btn btn-default btn-xs" type="button">My Filters</button></a>
+        &nbsp;&nbsp;
+        <a href="./feedadd.html" target="_self"><button class="btn btn-info btn-xs" type="button">Add Feed</button></a>
+        &nbsp;&nbsp;
+        <a href="./myfeeds.html" target="_self"><button class="btn btn-default btn-xs" type="button">My Feeds</button></a>
+    </div>
+
+    <div style="color:#000000; background-color: #ffffff; display:list-item; padding:4px; max-width:800px; margin-bottom: 2px; margin-top: 1px;margin-right: 2px;margin-left: 4px;">
+        <h3>Adding a new feed</h3><br>
+
+        <div class="input-group" style="margin-bottom:5px;">
+            <span class="input-group-addon" id="urladdon">Feed URL</span>
+            <input type="text" class="form-control" id="feed_url" value="">
+        </div>
+
+        <button type="button" class="btn btn-info" onclick="checkURL($('#feed_url')[0].value);" style="margin-bottom:15px;" >Check URL</button>
+
+
+        <div class="progress" id="check_progress_div" hidden>
+          <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" id="check_progress_bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+            <span id="check_progress_text"></span>
+          </div>
+        </div>
+
+
+        <div class="input-group" style="margin-bottom:5px;">
+            <span class="input-group-addon" >Name</span>
+            <input type="text" class="form-control" id="feed_name" style="" value="..." disabled>
+        </div>
+        <div class="input-group" style="margin-bottom:5px;">
+            <span class="input-group-addon">Description</span>
+            <input type="text" class="form-control" id="feed_description"   style="" value="..." disabled>
+        </div>
+
+        <div class="input-group" style="margin-bottom:5px;">
+            <span class="input-group-addon">Image</span>
+            <input type="text" class="form-control" id="feed_image_url"   style="" value="..." disabled>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="image_reload" disabled onclick="reloadimagefeed();">Refresh</button>
+            </span>
+        </div>
+
+        <img src="" class="img-rounded" id="feed_image_thumb" style="height:70px;max-width:90px;margin-bottom:5px;" hidden/>
+
+        <div class="input-group" style="margin-bottom:5px;">
+            <span class="input-group-addon">Id (calculated)</span>
+            <input type="text" class="form-control" id="feed_id"   style="" value="..." disabled>
+        </div>
+        <div class="input-group" style="margin-bottom:5px;">
+            <span class="input-group-addon">Articles</span>
+            <input type="text" class="form-control" id="feed_articles"   style="" value="N articles, last update on YY-MM-DD HH-MM-SS" disabled>
+        </div>
+
+        <button type="button" class="btn btn-danger" onclick="subscribe2feed();" style="margin-top:10px;" id="button_subscribe" disabled>Subscribe to feed</button>
+
+    </div>
+
+    <div style="color:#000000; background-color: #ffffff; display:list-item; padding:4px; max-width:100%; margin-bottom: 2px; margin-top: 1px;margin-right: 2px;margin-left: 4px;">
+        <br><br>
+        <label style="margin-bottom:4px;">Dump json</label>
+        <div id="feedshow" style="white-space: pre-wrap;">---</div>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

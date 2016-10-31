@@ -3,7 +3,8 @@
 title = "YANC Config"
 
 [ops4app]
-"rdb.ip"    = "192.168.75.97"
+#"rdb.ip"    = "192.168.75.97"
+"rdb.ip"    = "127.0.0.1"
 "rdb.port"  = 28015
 "rdb.base"  = "yanc"
 
