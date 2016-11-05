@@ -203,7 +203,7 @@ class ServYanc(object):
                         # new_feed['headers']['image_url_online'] = image_url[:400]
                         rdbans = r.table('feeds').insert(new_feed, conflict="error", return_changes=False).run(self.myops.rdb)
                         self.myops.rdb_release()
-                        logging.info("Feed insertion : %d | %s" % (rdbans['inserted'], str(rdbans)))
+                        logging.debug("Feed insertion : %d | %s" % (rdbans['inserted'], str(rdbans)))
                         retour['message'] = "Feed inserted - "
 
                 # --- Ajout de l'abonnement pour le user
@@ -218,30 +218,6 @@ class ServYanc(object):
 
         return retour
 
-
-
-    # @cherrypy.expose()
-    # @cherrypy.tools.json_in()
-    # @cherrypy.tools.json_out()
-    # def feedcheck2(self, _="", usrun=""):
-    #     retour = dict()
-    #     if self.checkUser(usrun[:30]) :
-    #         cherrypy.session['usrun'] = usrun[:30]
-    #
-    #     if len(cherrypy.session.get('usrun', default="")) < 2 :
-    #         retour['status']  = "error"
-    #         retour['message'] = "User session"
-    #     elif len(cherrypy.session.get('newfeed_content', default='')) > 0 :
-    #         try :
-    #             jsonfeed = acfeed.parsefeed(httpcontent=cherrypy.session.get('newfeed_content', default=''), feedid=cherrypy.session.get('newfeed_id', default=''))
-    #             retour['status']  = 'ok'
-    #             retour['feedobj'] = jsonfeed
-    #         except Exception as e :
-    #             logging.error("Exception parsing %s " % str(e))
-    #             retour['status']  = "error"
-    #             retour['message'] = "Parsing error %s" % str(e)
-    #
-    #     return retour
 
 if __name__ == '__main__':
     # --- Logs Definition  logging.Logger.manager.loggerDict.keys()
